@@ -1,26 +1,21 @@
-#' Load the dictionary into the global environment
+#' Dictionary content loader
 #'
+#' Load the dictionary into global environment
 #'
 #' @return NULL
 #'
 #' @examples
 #'
-#' loadDictionary()#'
-#' define("food")
+#' loadDictionary()
 #'
 #' @export
 
 
-loadDictionary <- function() {
-  pkgpath <- system.file("fullB.ob.dic", package = "r2dictionary")
-  load(pkgpath, envir = .GlobalEnv)
-  orig <- LETTERS
-  apnd <- ".dict76r56obi64."
-  newpo <- paste0(apnd, orig)
-  lapply(newpo, function(l) {
-    eval(parse(text = paste0('assign("', l, '",.finalcomb1[ toupper(substr(.finalcomb1$name,1,1))  == "', gsub(apnd,"",l), '",],envir = .GlobalEnv)')))
-  })
-  eval(parse(text = paste0('assign(".loadedDictionary",TRUE,envir = .GlobalEnv);rm(.finalcomb1, envir = .GlobalEnv)')))
-
+loadDictionary <- function(){
+  pkgpath = system.file("complete.dic",package = "r2dictionary")
+  load(pkgpath,envir = .GlobalEnv)
+  eval(parse(text=paste0('assign(".loadedDictionary",TRUE,envir = .GlobalEnv)')))
 }
+
+
 
