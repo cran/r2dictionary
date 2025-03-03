@@ -1,3 +1,7 @@
+# r2dictionary 0.3
+  
+  - Full dictionary included
+  
 # r2dictionary 0.2
   
   - Inclusion of option to return definitions as vector
